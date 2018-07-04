@@ -1,12 +1,10 @@
-from django.contrib import messages
-from django.urls import reverse_lazy
-from django.shortcuts import render
-from django.views.generic import CreateView, DeleteView, DetailView, UpdateView, ListView, TemplateView, FormView
+import datetime
+
 from django.http import HttpResponse
-from django.views import View
+from django.views.generic import DeleteView, DetailView, UpdateView, TemplateView, FormView
+
 from django_rat.models import Projects, Resume
 from .form import AddProjectForm
-import datetime
 
 
 # Create your views here.
@@ -54,12 +52,6 @@ class ProjectDeleteView(DeleteView):
     template_name = 'delete_confirm.html'
 
     success_url = '/resume/'
-
-    # def delete(self, request, *args, **kwargs):
-    #     result = super().delete(request, *args, **kwargs)
-    #     messages.success(
-    #         self.request, '「{}」を削除しました'.format(self.object))
-    #     return result
 
 
 def current_datetime(request):
