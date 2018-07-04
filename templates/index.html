@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <ul>
+        {% for user in queryset %}
+            <li>{{ user.summary }}-{{ user.name }}-{{ user.profilePicUrl }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
