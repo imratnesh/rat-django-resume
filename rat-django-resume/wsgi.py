@@ -1,5 +1,5 @@
 """
-WSGI config for rat_djngo_demo project.
+WSGI config for rat-django-resume project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,9 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "rat_djngo_demo.settings")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "rat-django-resume.settings")
 
 application = get_wsgi_application()
+from whitenoise.django import DjangoWhiteNoise
+
+application = DjangoWhiteNoise(application)

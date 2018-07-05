@@ -1,4 +1,4 @@
-"""rat_djngo_demo URL Configuration
+"""rat-django-resume URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/2.0/topics/http/urls/
@@ -15,9 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from django_rat import views
 from django.views.generic import RedirectView
-from django_rat.models import Resume
+
+from django_rat import views
 
 urlpatterns = (
     path('admin/', admin.site.urls),

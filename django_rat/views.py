@@ -1,19 +1,21 @@
 import datetime
 
 from django.http import HttpResponse
-from django.views.generic import DeleteView, DetailView, UpdateView, TemplateView, FormView
+from django.views.generic import DeleteView, DetailView, UpdateView, ListView, FormView
 
-from django_rat.models import Projects, Resume
 from .form import AddProjectForm
+from .models import Projects, Resume
 
 
 # Create your views here.
 
-class HomeIndex(TemplateView):
+class HomeIndex(ListView):
     template_name = 'index.html'
+    model = Resume
+    context_object_name = 'queryset'
 
     def get_context_data(self, **kwargs):
-        return super().get_context_data(queryset=Resume.objects.all())
+        return super().get_context_data()
 
 
 class ProjectDetailView(DetailView):
@@ -49,7 +51,7 @@ class EditProjectFormView(UpdateView):
 class ProjectDeleteView(DeleteView):
     model = Projects
     # form_class = AddProjectFormView
-    template_name = 'delete_confirm.html'
+    template_name = 'delete-confirm.html'
 
     success_url = '/resume/'
 

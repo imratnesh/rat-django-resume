@@ -1,5 +1,6 @@
 from django import forms
-from .models import Resume, Projects
+
+from .models import Projects
 
 
 class AddProjectForm(forms.ModelForm):

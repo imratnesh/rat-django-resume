@@ -3,7 +3,8 @@
 {% block content %}
     <ul>
         {% for user in queryset %}
-            <li>{{ user.summary }}-{{ user.name }}-{{ user.profilePicUrl }}</li>
+            <li>{{ user.summary }}-{{ user.name }} - {{ user.profilePicUrl }}</li>
+            <img src="{{ user.profilePicUrl }}" alt="profile pic"/>
         {% endfor %}
     </ul>
 {% endblock %}
