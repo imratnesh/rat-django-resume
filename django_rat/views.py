@@ -6,16 +6,15 @@ from django.views.generic import DeleteView, DetailView, UpdateView, ListView, F
 from .form import AddProjectForm
 from .models import Projects, Resume
 
-
 # Create your views here.
-
+first = 'Ratnesh Web | '
 class HomeIndex(ListView):
     template_name = 'index.html'
     model = Resume
     context_object_name = 'queryset'
 
     def get_context_data(self, **kwargs):
-        return super().get_context_data()
+        return super().get_context_data(projects=Projects.objects.all(), title=f'{first}Home')
 
 
 class ProjectDetailView(DetailView):
@@ -24,7 +23,7 @@ class ProjectDetailView(DetailView):
     template_name = 'project-detail.html'
 
     def get_context_data(self, **kwargs):
-        return super().get_context_data(**kwargs, title='Project detail')
+        return super().get_context_data(**kwargs, title=f'{first}Project detail')
 
 
 class AddProjectFormView(FormView):
@@ -52,7 +51,6 @@ class ProjectDeleteView(DeleteView):
     model = Projects
     # form_class = AddProjectFormView
     template_name = 'delete-confirm.html'
-
     success_url = '/resume/'
 
 

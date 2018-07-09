@@ -3,5 +3,6 @@
 {% block content %}
     <h1>{{ object.name }}</h1>
     <p class="cm-s-dark">{{ object.description }}</p>
-
+    <a href="/resume/project-{{ object.id }}/edit">Edit..</a>
+    {#    <a href="/resume/project-{{ object.id }}/delete" >Delete..</a>#}
 {% endblock %}

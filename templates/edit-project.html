@@ -1,11 +1,14 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <p>Edit project</p>
-    <form method="post">
+    <h2>Edit project</h2>
+
+    <div class="tabular">
+
+        <form class="modal-content animate" method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">Update</button>
+            <button type="submit" style="width:auto;">Update</button>
     </form>
-
+    </div>
 {% endblock %}

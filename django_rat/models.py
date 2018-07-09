@@ -3,9 +3,10 @@ from django.db import models
 
 # Create your models here.
 class Resume(models.Model):
-    name = models.CharField(max_length=3, primary_key=True)
-    profilePicUrl = models.CharField(max_length=100, null=True)
-    summary = models.TextField(null=False)
+    # id = models.IntegerField(primary_key=True)
+    name = models.TextField(max_length=25, unique=True)
+    profilePicUrl = models.TextField(max_length=60)
+    summary = models.TextField(max_length=50)
 
     def __str__(self):
         """A string representation of the model."""
