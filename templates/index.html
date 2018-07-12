@@ -13,8 +13,8 @@
 
     <div class="container-fluid bg-3 text-center">
         <h3>Some of my Work</h3><br>
-        {% for p in projects %}
             <div class="row">
+                {% for p in projects %}
                 <div class="col-sm-3">
                     <p>{{ p.name }}</p>
                     <a href="/resume/project-{{ p.id }}">
@@ -23,8 +23,9 @@
                              alt="{{ p.description }}">
                     </a>
                 </div>
+
+                {% endfor %}
             </div>
-        {% endfor %}
     </div>
 
 {% endblock %}
