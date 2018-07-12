@@ -16,7 +16,7 @@ class Resume(models.Model):
 class Projects(models.Model):
     resume = models.ForeignKey(Resume, on_delete=False)
     name = models.CharField(max_length=50)
-    screenshots = models.ImageField()
+    screenshots = models.ImageField(height_field=100, width_field=200, upload_to='static/')
     completion = models.DateField()
     started = models.DateField()
     description = models.TextField()

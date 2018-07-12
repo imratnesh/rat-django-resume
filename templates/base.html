@@ -9,7 +9,12 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     {#    <link rel="stylesheet" href="{% static 'my.css' %}">#}
-    {#    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>#}
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha256-MfvZlkHCEqatNoGiOXveE8FIwMzZg4W85qfrfIFBfYc= sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ=="
+          crossorigin="anonymous">
+
 </head>
 <body>
 
@@ -31,15 +36,99 @@
                 <li><a href="#">Contact</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
+                <li><a href="#"><span class="glyphicon"></span>A-</a></li>
+                <li><a href="#"><span class="glyphicon"></span>A</a></li>
+                <li><a href="#"><span class="glyphicon"></span>A+</a></li>
+                <li><a href="#"><span class="glyphicon"></span>Night</a></li>
             </ul>
         </div>
     </div>
 </nav>
-
-{% block content %}
-{% endblock %}
+<div style="padding: 5px;" class="text-center">
+    {% block content %}
+    {% endblock %}
+</div>
 {#    <script src="{% static 'my.js' %} }"></script>#}
+<section id="contact">
+    <div class="container">
+        {#            <div class="well well-sm">#}
+        <h3><strong>More..</strong></h3>
+        {#            </div>#}
+        {##}
+        <div class="row">
+            <div class="col-md-7">
+                {#        <iframe src="https://www.google.com/maps/embed?q=23.183573,75.8041102,19z" width="100%" height="315" frameborder="0" style="border:0" allowfullscreen></iframe>#}
+                <script src='https://maps.googleapis.com/maps/api/js?v=3.exp'></script>
+                <div style='overflow:hidden;height:440px;'>
+                    <div id='gmap_canvas' style='height:440px;width:700px;'></div>
+                    <style>#gmap_canvas img {
+                        max-width: none !important;
+                        background: none !important
+                    }</style>
+                </div>
+                <script type='text/javascript'>function init_map() {
+                    let myOptions = {
+                        zoom: 12,
+                        center: new google.maps.LatLng(23.178748983258068, 75.7856572293174),
+                        mapTypeId: google.maps.MapTypeId.SATELLITE
+                    };
+                    map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions);
+                    marker = new google.maps.Marker({
+                        map: map,
+                        position: new google.maps.LatLng(23.178748983258068, 75.7856572293174)
+                    });
+                    infowindow = new google.maps.InfoWindow({content: '<strong>Ratnesh Kushwaha</strong><br>Ujjain<br>'});
+                    google.maps.event.addListener(marker, 'click', function () {
+                        infowindow.open(map, marker);
+                    });
+                    infowindow.open(map, marker);
+                }
 
+                google.maps.event.addDomListener(window, 'load', init_map);</script>
+            </div>
+
+            <div class="col-md-5">
+                {#          <h4><strong>Get in Touch</strong></h4>#}
+                {#        <form>#}
+                {#          <div class="form-group">#}
+                {#            <input type="text" class="form-control" name="" value="" placeholder="Name">#}
+                {#          </div>#}
+                {#          <div class="form-group">#}
+                {#            <input type="email" class="form-control" name="" value="" placeholder="E-mail">#}
+                {#          </div>#}
+                {#          <div class="form-group">#}
+                {#            <input type="tel" class="form-control" name="" value="" placeholder="Phone">#}
+                {#          </div>#}
+                {#          <div class="form-group">#}
+                {#            <textarea class="form-control" name="" rows="3" placeholder="Message"></textarea>#}
+                {#          </div>#}
+                {#          <button class="btn btn-default" type="submit" name="button">#}
+                {#              <i class="fa fa-paper-plane-o" aria-hidden="true"></i> Submit#}
+                {#          </button>#}
+                {#        </form>#}
+                <a href="https://twitter.com/ratneshkush?ref_src=twsrc%5Etfw" class="twitter-follow-button"
+                   data-show-count="true">Follow @ratneshkush</a>
+                <a class="twitter-timeline" href="https://twitter.com/ratneshkush?ref_src=twsrc%5Etfw"
+                   data-tweet-limit="3">Tweets by ratneshkush</a>
+                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="container">
+    {#<h3>Multi-Coloured</h3>#}
+    <hr>
+    <div class="text-center center-block">
+        {#            <p class="txt-railway">- Bootsnipp.com -</p>#}
+        <br/>
+        <a href="https://www.facebook.com/bootsnipp"><i id="social-fb"
+                                                        class="fa fa-facebook-square fa-3x social"></i></a>
+        <a href="https://twitter.com/bootsnipp"><i id="social-tw" class="fa fa-twitter-square fa-3x social"></i></a>
+        <a href="https://plus.google.com/+Bootsnipp-page"><i id="social-gp"
+                                                             class="fa fa-google-plus-square fa-3x social"></i></a>
+        <a href="mailto:bootsnipp@gmail.com"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a>
+    </div>
+    <hr>
+</div>
 </body>
 </html>

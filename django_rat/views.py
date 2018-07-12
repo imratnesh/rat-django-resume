@@ -8,6 +8,8 @@ from .models import Projects, Resume
 
 # Create your views here.
 first = 'Ratnesh Web | '
+
+
 class HomeIndex(ListView):
     template_name = 'index.html'
     model = Resume
@@ -30,6 +32,22 @@ class AddProjectFormView(FormView):
     template_name = 'addProjectForm.html'
     form_class = AddProjectForm
     success_url = '/'
+
+    # def get(self, request, *args, **kwargs):
+    #     signupform = self.form_class()
+    #     context = {'addprojectform': signupform, }
+    #
+    #     return render(request, template_name='addProjectForm.html')
+    #
+    #
+    # def post(self, request, *arsg, **kwargs):
+    #     signupform = self.form_class(request.POST)
+    #
+    #     if signupform.is_valid():
+    #         print('VALID')
+    #         signupform.save()
+    #
+    #     context = {'addprojectform': signupform, }
 
     def form_valid(self, form):
         form.save()

@@ -4,7 +4,8 @@
     <div class="jumbotron">
         <div class="container text-center">
             {% for user in queryset %}
-                <h1><img src="{{ user.profilePicUrl }}" alt="profile pic" style="float: top"/> <br/> {{ user.name }}
+                <h1><img src="{{ user.profilePicUrl }}" alt="profile pic"
+                         style="float: start; height: 100px; width: 100px "/> {{ user.name }}
                 </h1>
                 <p> {{ user.summary }}</p>
             {% endfor %}
@@ -12,9 +13,9 @@
     </div>
 
     <div class="container-fluid bg-3 text-center">
-        <h3>Some of my Work</h3><br>
-        {% for p in projects %}
+        <h3>Some of my work</h3><br>
             <div class="row">
+                {% for p in projects %}
                 <div class="col-sm-3">
                     <p>{{ p.name }}</p>
                     <a href="/resume/project-{{ p.id }}">
@@ -23,8 +24,9 @@
                              alt="{{ p.description }}">
                     </a>
                 </div>
+
+                {% endfor %}
             </div>
-        {% endfor %}
     </div>
 
 {% endblock %}

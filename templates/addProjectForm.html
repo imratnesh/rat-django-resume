@@ -1,11 +1,13 @@
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
 
 {% block content %}
-    <p>Add project</p>
-    <form method="post">
+    <h1>Add project</h1>
+    <form class="modal-content animate" style="padding: 5px" method="post">
         {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Submit</button>
+        {#        {{ form.as_p }}#}
+        {#        <button type="submit">Submit</button>#}
+        {% crispy form form.helper %}
     </form>
 
 {% endblock %}
