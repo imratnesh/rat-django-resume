@@ -15,8 +15,22 @@ class HomeIndex(ListView):
     model = Resume
     context_object_name = 'queryset'
 
+    def render_to_response(self, context, **response_kwargs):
+        response = super(HomeIndex, self).render_to_response(context, **response_kwargs)
+        response.set_cookie("lastLogin", datetime.datetime.now().date())
+        print(response.get('lastLogin'))
+        return response
+
     def get_context_data(self, **kwargs):
-        return super().get_context_data(projects=Projects.objects.all(), title=f'{first}Home')
+        if 'lastLogin' in self.request.COOKIES:
+            req = self.request.COOKIES['lastLogin']
+        else:
+            req = 'Welcome'
+        k = super().get_context_data(projects=Projects.objects.all(), title=f'{first}Home', reqs=req)
+        # res = self.render_to_response(**kwargs)
+        # res.set_cookie('success', 'sucbb bcess')
+        # print(res.get('success'), 'hh')
+        return k
 
 
 class ProjectDetailView(DetailView):
