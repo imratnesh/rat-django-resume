@@ -2,7 +2,6 @@
 
 {% block content %}
     <div class="jumbotron">
-        <p>You last visited: {{ reqs }}</p>
         <div class="container text-center">
             {% for user in queryset %}
                 <h1><img src="{{ user.profilePicUrl }}" alt="profile pic"
@@ -14,9 +13,13 @@
     </div>
 
     <div class="container-fluid bg-3 text-center">
+<<<<<<<<< Temporary merge branch 1
+        <h3>Some of my Work</h3><br>
+=========
         <h3>Some of my work</h3><br>
-        <div class="row">
-            {% for p in projects %}
+>>>>>>>>> Temporary merge branch 2
+            <div class="row">
+                {% for p in projects %}
                 <div class="col-sm-3">
                     <p>{{ p.name }}</p>
                     <a href="/resume/project-{{ p.id }}">
@@ -26,8 +29,8 @@
                     </a>
                 </div>
 
-            {% endfor %}
-        </div>
+                {% endfor %}
+            </div>
     </div>
 
 {% endblock %}
