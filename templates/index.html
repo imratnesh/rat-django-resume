@@ -3,6 +3,7 @@
 {% block content %}
     <div class="jumbotron">
         <div class="container text-center">
+            <p>You last visited on {{ reqs }} </p>
             {% for user in queryset %}
                 <h1><img src="{{ user.profilePicUrl }}" alt="profile pic"
                          style="float: start; height: 100px; width: 100px "/> {{ user.name }}
@@ -11,15 +12,12 @@
             {% endfor %}
         </div>
     </div>
-
+    {#    <embed src="files/Brochure.pdf" type="application/pdf" width="100%" height="600px" />#}
     <div class="container-fluid bg-3 text-center">
-<<<<<<<<< Temporary merge branch 1
-        <h3>Some of my Work</h3><br>
-=========
-        <h3>Some of my work</h3><br>
->>>>>>>>> Temporary merge branch 2
-            <div class="row">
-                {% for p in projects %}
+
+        <h3>Some of my Work</h3>
+        <div class="row">
+            {% for p in projects %}
                 <div class="col-sm-3">
                     <p>{{ p.name }}</p>
                     <a href="/resume/project-{{ p.id }}">
@@ -29,8 +27,8 @@
                     </a>
                 </div>
 
-                {% endfor %}
-            </div>
+            {% endfor %}
+        </div>
     </div>
 
 {% endblock %}

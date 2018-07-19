@@ -6,14 +6,6 @@
     <title>{{ title }}</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    {#    <link rel="stylesheet" href="{% static 'my.css' %}">#}
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha256-MfvZlkHCEqatNoGiOXveE8FIwMzZg4W85qfrfIFBfYc= sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ=="
-          crossorigin="anonymous">
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <script>
         (adsbygoogle = window.adsbygoogle || []).push({
@@ -21,6 +13,12 @@
             enable_page_level_ads: true
         });
     </script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    {#    <link rel="stylesheet" href="{% static 'my.css' %}">#}
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
 
 </head>
 <body>
@@ -43,9 +41,15 @@
                 <li><a href="#">Contact</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#"><span class="glyphicon"></span>A-</a></li>
-                <li><a href="#"><span class="glyphicon"></span>A</a></li>
-                <li><a href="#"><span class="glyphicon"></span>A+</a></li>
+                <li>
+                    <button onclick="decFont()"><span class="glyphicon"></span>A-</button>
+                </li>
+                <li>
+                    <button onclick="reset()"><span class="glyphicon"></span>A</button>
+                </li>
+                <li>
+                    <button onclick="incFont()"><span class="glyphicon"></span>A+</button>
+                </li>
                 <li><a href="#"><span class="glyphicon"></span>Night</a></li>
             </ul>
         </div>
@@ -55,6 +59,42 @@
     {% block content %}
     {% endblock %}
 </div>
+
+<section id="contact">
+    <div class="container">
+        {#            <div class="well well-sm">#}
+        <h3><strong>Social programming</strong></h3>
+        {#            </div>#}
+        {##}
+        <div class="row">
+            <div class="col-md-4">
+                <h2>Pdf 1</h2>
+                {#                <embed src="/home/ratnesh/Desktop/djangobook.pdf#toolbar=0&navpanes=0&scrollbar=0" type="application/pdf" width="100%"#}
+                {#                       height="20px"/>#}
+                <a href="https://www.dropbox.com/s/p7k6wtl3hpl6osf/FinalDEMO28Jun.pdf">M.E. Thesis</a>
+            </div>
+            <div class="col-md-4">
+                <h2>Links</h2>
+                <ul>
+                    <li><a href="https://py.checkio.org/user/imratnesh/">PyCheck IO</a></li>
+                    <li><a href="https://www.kaggle.com/ratnesh88/">Kaggle</a></li>
+                    <li><a href="https://github.com/imratnesh/">Github</a></li>
+                    <li><a href="https://www.hackerrank.com/ratnesh88">Hacker Rank</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <h2>Pdf 2</h2>
+                <ul>
+                    <li>
+                        <a href="https://goo.gl/W20b8z">Presentation on project</a></li>
+                    <li>
+                        <a href="https://play.google.com/store/apps/details?id=com.codetube.ediary">Google play link</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
 {#    <script src="{% static 'my.js' %} }"></script>#}
 <section id="contact">
     <div class="container">
@@ -71,27 +111,48 @@
                     <style>#gmap_canvas img {
                         max-width: none !important;
                         background: none !important
+
                     }</style>
                 </div>
-                <script type='text/javascript'>function init_map() {
-                    let myOptions = {
-                        zoom: 12,
-                        center: new google.maps.LatLng(23.178748983258068, 75.7856572293174),
-                        mapTypeId: google.maps.MapTypeId.SATELLITE
-                    };
-                    map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions);
-                    marker = new google.maps.Marker({
-                        map: map,
-                        position: new google.maps.LatLng(23.178748983258068, 75.7856572293174)
-                    });
-                    infowindow = new google.maps.InfoWindow({content: '<strong>Ratnesh Kushwaha</strong><br>Ujjain<br>'});
-                    google.maps.event.addListener(marker, 'click', function () {
-                        infowindow.open(map, marker);
-                    });
-                    infowindow.open(map, marker);
-                }
+                <script type='text/javascript'>
+                    let currentFontSize = $('*').css('font-size');
 
-                google.maps.event.addDomListener(window, 'load', init_map);</script>
+                    function incFont() {
+                        console.log('increase', currentFontSize);
+                        {#document.getElementsByTagName('p').style.fontSize = Number(currentFontSize.slice(0,2)) + 2;#}
+                        document.body.style.fontSize = parseFloat(document.body.style.fontSize) + (currentFontSize * 0.2) + "px";
+                    }
+
+                    function decFont() {
+                        {#console.log('decrease', currentFontSize.value, Number('6') * 5)#}
+                        document.body.style.fontSize = parseFloat(document.body.style.fontSize) + (currentFontSize / 0.2) + "px";
+                        console.log('decrease', currentFontSize)
+                    }
+
+                    function reset() {
+                        console.log('reset', currentFontSize);
+                        document.body.style.fontSize = parseFloat(document.body.style.fontSize) + (currentFontSize) + "px";
+                    }
+
+                    function init_map() {
+                        let myOptions = {
+                            zoom: 12,
+                            center: new google.maps.LatLng(23.178748983258068, 75.7856572293174),
+                            mapTypeId: google.maps.MapTypeId.SATELLITE
+                        };
+                        map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions);
+                        marker = new google.maps.Marker({
+                            map: map,
+                            position: new google.maps.LatLng(23.178748983258068, 75.7856572293174)
+                        });
+                        infowindow = new google.maps.InfoWindow({content: '<strong>Ratnesh Kushwaha</strong><br>Ujjain<br>'});
+                        google.maps.event.addListener(marker, 'click', function () {
+                            infowindow.open(map, marker);
+                        });
+                        infowindow.open(map, marker);
+                    }
+
+                    google.maps.event.addDomListener(window, 'load', init_map);</script>
             </div>
 
             <div class="col-md-5">
@@ -128,12 +189,10 @@
     <div class="text-center center-block">
         {#            <p class="txt-railway">- Bootsnipp.com -</p>#}
         <br/>
-        <a href="https://www.facebook.com/bootsnipp"><i id="social-fb"
-                                                        class="fa fa-facebook-square fa-3x social"></i></a>
-        <a href="https://twitter.com/bootsnipp"><i id="social-tw" class="fa fa-twitter-square fa-3x social"></i></a>
+        <a href="https://twitter.com/ratneshkush"><i id="social-tw" class="fa fa-twitter-square fa-3x social"></i></a>
         <a href="https://plus.google.com/+Bootsnipp-page"><i id="social-gp"
                                                              class="fa fa-google-plus-square fa-3x social"></i></a>
-        <a href="mailto:bootsnipp@gmail.com"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a>
+        <a href="mailto:rat.kush@gmail.com"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a>
     </div>
     <hr>
 </div>

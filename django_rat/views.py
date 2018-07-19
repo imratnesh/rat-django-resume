@@ -18,7 +18,7 @@ class HomeIndex(ListView):
     def render_to_response(self, context, **response_kwargs):
         response = super(HomeIndex, self).render_to_response(context, **response_kwargs)
         response.set_cookie("lastLogin", datetime.datetime.now().date())
-        print(response.get('lastLogin'))
+        # print(response.get('lastLogin'))
         return response
 
     def get_context_data(self, **kwargs):
