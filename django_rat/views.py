@@ -1,7 +1,7 @@
 import datetime
 
 from django.http import HttpResponse
-from django.views.generic import DeleteView, DetailView, UpdateView, ListView, FormView
+from django.views.generic import DeleteView, DetailView, UpdateView, ListView, FormView, TemplateView
 
 from .form import AddProjectForm
 from .models import Projects, Resume
@@ -34,7 +34,6 @@ class HomeIndex(ListView):
 
 
 class ProjectDetailView(DetailView):
-    # template_name = "project-detail.html"
     model = Projects
     template_name = 'project-detail.html'
 
@@ -42,10 +41,39 @@ class ProjectDetailView(DetailView):
         return super().get_context_data(**kwargs, title=f'{first}Project detail')
 
 
+class MessageView(TemplateView):
+    # form_class = AddProjectFormView
+    template_name = 'message.html'
+
+    # msg = getattr(MessageView, 'message')
+    # print(msg)
+
+    def get_context_data(self, **kwargs):
+        return super().get_context_data(**kwargs, title=f'{first}Message', message='Added successfully')
+
+
+class ThesisPdfView(TemplateView):
+    template_name = 'thesis.html'
+
+    def get_context_data(self, **kwargs):
+        return super().get_context_data(**kwargs, title=f'{first}M.E. Thesis', active='active')
+
+    # def get(self, request, *args, **kwargs):
+    #     context = self.get_context_data()
+    #     response = HttpResponse(content_type='application/pdf')
+    #     response['Content-Disposition'] = 'inline; filename="Ratnesh_Python_Cloud_SGSITS_Indore.pdf"'
+    #     # Can use attachment or inline
+    #
+    #     # pdf generation logic here
+    #     # open an existing pdf or generate one using i.e. reportlab
+    #
+    #     return response
+
+
 class AddProjectFormView(FormView):
     template_name = 'addProjectForm.html'
     form_class = AddProjectForm
-    success_url = '/'
+    success_url = '/resume/message'
 
     # def get(self, request, *args, **kwargs):
     #     signupform = self.form_class()
@@ -72,7 +100,9 @@ class EditProjectFormView(UpdateView):
     template_name = 'edit-project.html'
     form_class = AddProjectForm
     model = Projects
-    success_url = '/'
+    # setattr(MessageView, 'message', 'Updated')
+
+    success_url = '/resume/message'
 
     def form_valid(self, form):
         form.save()
@@ -83,7 +113,8 @@ class ProjectDeleteView(DeleteView):
     model = Projects
     # form_class = AddProjectFormView
     template_name = 'delete-confirm.html'
-    success_url = '/resume/'
+    # setattr('message', 'Deleted')
+    success_url = '/resume/message'
 
 
 def current_datetime(request):

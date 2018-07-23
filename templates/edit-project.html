@@ -5,8 +5,8 @@
     <h1>Edit project</h1>
     <form class="modal-content animate" style="padding: 5px" method="post">
         {% csrf_token %}
-        {#        {{ form.as_p }}#}
-        {#        <button type="submit">Submit</button>#}
+        {#        {{ form.as_p }}   #}
+        {#        <button type="submit">Submit</button>     #}
         {% crispy form form.helper %}
     </form>
 {% endblock %}

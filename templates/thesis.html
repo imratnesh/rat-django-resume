@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="container-fluid bg-3 text-center">
+
+        <h3>M.E. Thesis</h3>
+        <div class="row">
+            <embed src="{% static 'FinalDEMO28Jun.pdf' %}#toolbar=0&navpanes=0&scrollbar=0" type="application/pdf"
+                   width="80%" height="600px"/>
+        </div>
+    </div>
+
+{% endblock %}
