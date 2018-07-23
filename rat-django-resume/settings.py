@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_rat.apps.DjangoRatConfig',
     'django.forms',
-    'crispy_forms'
+    'crispy_forms',
+    # 'paypal.standard.ipn'
 ]
 
 MIDDLEWARE = [
@@ -136,3 +137,6 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Activate Django-Heroku.
 django_heroku.settings(locals())
+
+# PAYPAL_RECEIVER_EMAIL = 'ratnesh.kush@yahoo.in'
+# PAYPAL_TEST =True

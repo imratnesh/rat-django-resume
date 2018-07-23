@@ -27,5 +27,7 @@ urlpatterns = (
     path('add/', views.AddProjectFormView.as_view()),
     path('resume/project-<str:pk>/edit/', views.EditProjectFormView.as_view()),
 
-    path('resume/project-<str:pk>/delete/', views.ProjectDeleteView.as_view())
+    path('resume/project-<str:pk>/delete/', views.ProjectDeleteView.as_view()),
+    path('resume/thesis/', views.ThesisPdfView.as_view()),
+    # path('resume/paypal', paypal.standard.ipn.url)
 )
