@@ -23,7 +23,7 @@ class HomeIndex(ListView):
 
     def get_context_data(self, **kwargs):
         if 'lastLogin' in self.request.COOKIES:
-            req = self.request.COOKIES['lastLogin']
+            req = 'Welcome again. You last visited on ' + self.request.COOKIES['lastLogin']
         else:
             req = 'Welcome'
         k = super().get_context_data(projects=Projects.objects.all(), title=f'{first}Home', reqs=req)

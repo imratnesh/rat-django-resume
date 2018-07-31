@@ -27,7 +27,7 @@ SECRET_KEY = 'ukklib(bs$297$&lj3!0(6)^w_1$l_a=s9tg#xl@@$$ects3p-'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com', '0.0.0.0']
+ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com', '0.0.0.0', '192.168.43.243']
 
 # Application definition
 

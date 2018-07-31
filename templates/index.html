@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
-{% load static %}
+{% load staticfiles %}
 
 {% block content %}
     <div class="jumbotron">
         <div class="container text-center">
             <img src="{% static 'download.png' %}" style="height: 100%;float: left;">
-            <p>You last visited on {{ reqs }} </p>
+            <p> {{ reqs }} </p>
             {% for user in queryset %}
                 <h1><img src="{{ user.profilePicUrl }}" alt="profile pic"
                          style="float: start; height: 100px; width: 100px "/> {{ user.name }}
