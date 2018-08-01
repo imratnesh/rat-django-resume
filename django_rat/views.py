@@ -58,18 +58,6 @@ class ThesisPdfView(TemplateView):
     def get_context_data(self, **kwargs):
         return super().get_context_data(**kwargs, title=f'{first}M.E. Thesis', active='active')
 
-    # def get(self, request, *args, **kwargs):
-    #     context = self.get_context_data()
-    #     response = HttpResponse(content_type='application/pdf')
-    #     response['Content-Disposition'] = 'inline; filename="Ratnesh_Python_Cloud_SGSITS_Indore.pdf"'
-    #     # Can use attachment or inline
-    #
-    #     # pdf generation logic here
-    #     # open an existing pdf or generate one using i.e. reportlab
-    #
-    #     return response
-
-
 class AddProjectFormView(FormView):
     template_name = 'addProjectForm.html'
     form_class = AddProjectForm

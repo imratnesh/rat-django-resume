@@ -23,7 +23,7 @@
 </head>
 <body>
 
-<nav class="navbar navbar-inverse">
+<nav class="navbar navbar-light" style="background-color: #e3f2fd;">
     <div class="container-fluid">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -36,9 +36,9 @@
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
                 <li class="{{ active }}"><a href="/">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Gallery</a></li>
-                <li><a href="#">Contact</a></li>
+                {#                <li><a href="#">About</a></li>#}
+                <li><a href="https://github.com/imratnesh/">Github</a></li>
+                <li><a href="https://www.visualcv.com/ratnesh-kushwaha/pdf">CV</a></li>
                 <li><a href="/resume/thesis">Thesis</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
@@ -56,13 +56,13 @@
         </div>
     </div>
 </nav>
-<div style="padding: 5px;" class="text-center">
+<div style="padding: 5px;" class=" bg-white text-primary text-center">
     {% block content %}
     {% endblock %}
 </div>
 
 <section id="contact">
-    <div class="container">
+    <div class="container bg-info">
         {#            <div class="well well-sm">#}
         <h3><strong>Social programming</strong></h3>
         {#            </div>#}
@@ -218,7 +218,7 @@
         </div>
     </div>
 </section>
-<div class="container">
+<div class="container bg-warning">
     {#<h3>Multi-Coloured</h3>#}
     <hr>
     <div class="text-center center-block">

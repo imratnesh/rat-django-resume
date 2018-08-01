@@ -2,9 +2,9 @@
 {% load staticfiles %}
 
 {% block content %}
-    <div class="jumbotron">
+    <div>
         <div class="container text-center">
-            <img src="{% static 'download.png' %}" style="height: 100%;float: left;">
+            <img src="{% static 'download.png' %}" style="height:300px;float: left;">
             <p> {{ reqs }} </p>
             {% for user in queryset %}
                 <h1><img src="{{ user.profilePicUrl }}" alt="profile pic"
@@ -15,7 +15,7 @@
         </div>
     </div>
     {#    <embed src="files/Brochure.pdf" type="application/pdf" width="100%" height="600px" />#}
-    <div class="container-fluid bg-3 text-center">
+    <div class="container-fluid text-center">
 
         <h3>Some of my Work</h3>
         <div class="row">
@@ -23,7 +23,8 @@
                 <div class="col-sm-3">
                     <p>{{ p.name }}</p>
                     <a href="/resume/project-{{ p.id }}">
-                        <img src="https://placehold.it/150x80?text=More details.." class="img-responsive"
+                        <img src="https://placehold.it/150x80/e3f2fd/000000?text=More details.."
+                             class="img-responsive  bg-info"
                              style="width:100%"
                              alt="{{ p.description }}">
                     </a>

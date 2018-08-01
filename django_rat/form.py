@@ -48,7 +48,7 @@ class AddProjectForm(forms.ModelForm):
 
             HTML(""" """),
 
-            Submit('submit', 'Save Project', css_class='upload-btn')
+            Submit('submit', 'Save Project', css_class='upload-btn btn btn-success"')
         )
         #
         #
