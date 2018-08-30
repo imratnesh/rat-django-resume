@@ -58,6 +58,7 @@ class ThesisPdfView(TemplateView):
     def get_context_data(self, **kwargs):
         return super().get_context_data(**kwargs, title=f'{first}M.E. Thesis', active='active')
 
+
 class AddProjectFormView(FormView):
     template_name = 'addProjectForm.html'
     form_class = AddProjectForm
