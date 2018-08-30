@@ -29,5 +29,5 @@ urlpatterns = (
 
     path('resume/project-<str:pk>/delete/', views.ProjectDeleteView.as_view()),
     path('resume/thesis/', views.ThesisPdfView.as_view()),
-    # path('resume/paypal', paypal.standard.ipn.url)
+    path('nltk/<str:text>/', views.nltk)
 )

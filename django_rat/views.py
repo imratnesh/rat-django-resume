@@ -58,6 +58,7 @@ class ThesisPdfView(TemplateView):
     def get_context_data(self, **kwargs):
         return super().get_context_data(**kwargs, title=f'{first}M.E. Thesis', active='active')
 
+
 class AddProjectFormView(FormView):
     template_name = 'addProjectForm.html'
     form_class = AddProjectForm
@@ -105,7 +106,11 @@ class ProjectDeleteView(DeleteView):
     success_url = '/resume/message'
 
 
-def current_datetime(request):
-    now = datetime.datetime.now()
-    html = "<html><body>It is now %s.</body></html>" % now
-    return HttpResponse(html)
+def nltk(request, text="Ratnesh Kushwaha is CEO of SarasAnalytics headquarter in Ujjain owned Ford use Indian railway"):
+    from .nltkChunks import nltkChunks
+    res = nltkChunks(text)
+    # html = "<html><body>It is now %s.</body></html>" % now
+
+    html = f"<html><body>{res}</body></html>"
+    # print(html, request.POST.get('text'),text)
+    return HttpResponse(res)

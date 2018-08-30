@@ -14,8 +14,6 @@ class AddProjectForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(AddProjectForm, self).__init__(*args, **kwargs)
         self.helper = FormHelper()
-        #
-        #
         self.helper.layout = Layout(
 
             Field('resume',
@@ -50,6 +48,5 @@ class AddProjectForm(forms.ModelForm):
 
             Submit('submit', 'Save Project', css_class='upload-btn btn btn-success"')
         )
-        #
-        #
+
         self.helper.form_method = 'POST'
