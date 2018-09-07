@@ -1,6 +1,6 @@
-averaged_perceptron_tagger
-words
 punkt
+words
+averaged_perceptron_tagger
 wordnet
 maxent_ne_chunker
 english_ace_multiclass
