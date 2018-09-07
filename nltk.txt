@@ -1,3 +1,4 @@
 averaged_perceptron_tagger
 maxent_ne_chunker
 english_ace_multiclass
+words
